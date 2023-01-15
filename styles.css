@@ -1,0 +1,83 @@
+html,
+body {
+  width: 100w;
+  height: 100vh;
+  font-family: sans-serif;
+  font-size: 62.5%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(45deg, rgb(137, 131, 228), rgb(248, 138, 138));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Menu-list {
+  font-size: 5rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.Menu-list-item {
+  text-decoration: none;
+  position: relative;
+  color: transparent;
+  cursor: pointer;
+}
+
+.Mask span {
+  display: block;
+}
+.Mask {
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  color: rgb(19, 7, 71);
+  top: 0;
+  height: 49%;
+  transition: all 0.8s cubic-bezier(0.16, 1.08, 0.38, 0.98);
+}
+.Mask + .Mask {
+  top: 48.9%;
+}
+.Mask + .Mask span {
+  transform: translateY(-49%);
+}
+.Menu-list-item:hover .Mask,
+.Menu-list-item:active .Mask {
+  color: #fff;
+  transform: skewX(12deg) translateX(5px);
+}
+
+.Menu-list-item:hover .Mask + .Mask,
+.menu-list-item:active .Mask + .Mask {
+  color: #fff;
+  transform: skewX(12deg) translateX(-5px);
+}
+
+.Menu-list-item::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 49%;
+  left: -10%;
+  right: -10%;
+  height: 0.25rem;
+  border-radius: 4rem;
+  background-color: #ff2c75;
+  transform: scale(0);
+  transition: transfom 0.8s cubic-bezier(0.16, 1.08, 0.38, 0.98);
+  z-index: 1;
+}
+
+.Menu-list-item:hover::before,
+.Menu-list-item:active::before {
+  transform: scale(1);
+}
